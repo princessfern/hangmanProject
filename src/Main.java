@@ -19,7 +19,7 @@ public class Main {
 //               Get word
                String word = Words.getWord();
                for(char x : word.toCharArray()){
-                   if(String.valueOf(x).equals(" ")||String.valueOf(x).equals(".")||String.valueOf(x).equals(":")){
+                   if(String.valueOf(x).equals(" ")||String.valueOf(x).equals(".")||String.valueOf(x).equals(":")||String.valueOf(x).equals("-")){
                        System.out.print(x);
                    }else{
                        System.out.print("_");
