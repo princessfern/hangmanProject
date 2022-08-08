@@ -19,8 +19,13 @@ public class Main {
 //               Get word
                String word = Words.getWord();
                for(char x : word.toCharArray()){
-                   System.out.print("_");
+                   if(String.valueOf(x).equals(" ")||String.valueOf(x).equals(".")||String.valueOf(x).equals(":")){
+                       System.out.print(x);
+                   }else{
+                       System.out.print("_");
+                   }
                }
+               System.out.println("\n"+word);
            } catch (IOException e) {
                e.printStackTrace();
            }
