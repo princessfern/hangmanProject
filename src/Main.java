@@ -10,15 +10,21 @@ public class Main {
         System.out.println("Begin Game? Y/N");
         String input = scanner.next();
         if(input.equalsIgnoreCase("y")){
-           try(BufferedReader br = new BufferedReader(new FileReader("visuals.txt"));){
+           try(BufferedReader br = new BufferedReader(new FileReader("visuals.txt"))){
                String line = br.readLine();
                while(line!=null){
                    System.out.println(line);
                    line = br.readLine();
                }
+//               Get word
+               String word = Words.getWord();
+               for(char x : word.toCharArray()){
+                   System.out.print("_");
+               }
            } catch (IOException e) {
                e.printStackTrace();
            }
+
         }
     }
 }
