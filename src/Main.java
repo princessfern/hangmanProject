@@ -19,13 +19,13 @@ public class Main {
                    sb.append(System.lineSeparator());
                    line = br.readLine();
                }
-               List<String> visuals = Arrays.asList(sb.toString().split(","));
-               LinkedList<String> visualsList=new LinkedList<String>(visuals);
+               LinkedList<String> visualsList= new LinkedList<>(Arrays.asList(sb.toString().split(",")));
                System.out.println(visualsList.get(0));
 //               Get word
                String word = Words.getWord().toUpperCase();
                for(char x : word.toCharArray()){
-                   if(String.valueOf(x).equals(" ")||String.valueOf(x).equals(".")||String.valueOf(x).equals(":")||String.valueOf(x).equals("-")||String.valueOf(x).equals("'")||String.valueOf(x).matches("%d")){
+                   if(String.valueOf(x).equals(" ")||String.valueOf(x).equals(".")||String.valueOf(x).equals(":")||String.valueOf(x).equals("-")||String.valueOf(x).equals("'")||
+                           String.valueOf(x).matches("\\d")){
                        System.out.print(x);
                    }else{
                        System.out.print("_");
@@ -36,37 +36,38 @@ public class Main {
 //               Start guessing
                System.out.print("Start Guessing!\n");
                Boolean game = true;
-               FileWriter progress = new FileWriter("progress.txt");
+
+               ArrayList<String> guesses = new ArrayList<String>();
                do{
-                   String guess = scanner.next("[a-zA-Z]");
                    StringBuilder updates = new StringBuilder();
+                   String guess = scanner.next("[a-zA-Z]");
+                   guesses.add(guess);
                    if(word.contains(guess.toUpperCase())){
 //                       System.out.println("present!");
                        System.out.println(visualsList.get(0));
                        for(char x : word.toCharArray()) {
                            if (String.valueOf(x).equals(" ") || String.valueOf(x).equals(".") || String.valueOf(x).equals(":") || String.valueOf(x).equals("-") ||
-                                   String.valueOf(x).equals("'") || String.valueOf(x).matches("\\d") || String.valueOf(x).equals(guess.toUpperCase())) {
+                                   String.valueOf(x).equals("'") || String.valueOf(x).matches("\\d") || guesses.contains(String.valueOf(x).toUpperCase())) {
                                updates.append(x);
                            } else {
                                updates.append("_");
                            }
                        }
-
-                       progress.write(updates.toString());
-                       progress.close();
-                       Scanner savedProgress = new Scanner(Paths.get("progress.txt"));
-                       while(savedProgress.hasNext()){
-                           System.out.format("%s ", savedProgress.next());
-                       }
+                       System.out.println(updates);
 
                    }else{
                        System.out.println("Not Present!");
                        visualsList.pop();
                        System.out.println(visualsList.get(0));
-                       Scanner savedProgress = new Scanner(Paths.get("progress.txt"));
-                       while(savedProgress.hasNext()){
-                           System.out.format("%s ", savedProgress.next());
+                       for(char x : word.toCharArray()) {
+                           if (String.valueOf(x).equals(" ") || String.valueOf(x).equals(".") || String.valueOf(x).equals(":") || String.valueOf(x).equals("-") ||
+                                   String.valueOf(x).equals("'") || String.valueOf(x).matches("\\d") || guesses.contains(String.valueOf(x).toUpperCase())) {
+                               updates.append(x);
+                           } else {
+                               updates.append("_");
+                           }
                        }
+                       System.out.println(updates);
                    }
                 }while(game==true);
 
