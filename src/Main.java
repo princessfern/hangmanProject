@@ -6,6 +6,19 @@ import java.nio.file.Paths;
 import java.util.*;
 
 public class Main {
+    public static void outputWord(String word, UpdatedString updates, ArrayList<String> guesses){
+        for(char x : word.toCharArray()) {
+            if (String.valueOf(x).equals(" ") || String.valueOf(x).equals(".") || String.valueOf(x).equals(":") || String.valueOf(x).equals("-") ||
+                    String.valueOf(x).equals("'") || String.valueOf(x).matches("\\d") || guesses.contains(String.valueOf(x))) {
+                updates.addTo(String.valueOf(x));
+            } else {
+                updates.addTo("_");
+            }
+        }
+        System.out.println(updates.get());
+    }
+
+
     public static void main(String[] args) {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Begin Game? Y/N");
@@ -39,35 +52,23 @@ public class Main {
 
                ArrayList<String> guesses = new ArrayList<String>();
                do{
-                   StringBuilder updates = new StringBuilder();
-                   String guess = scanner.next("[a-zA-Z]");
+//                   StringBuilder updates = new StringBuilder();
+                   UpdatedString updates = new UpdatedString();
+                   String guess = scanner.next("[a-zA-Z]").toUpperCase();
                    guesses.add(guess);
-                   if(word.contains(guess.toUpperCase())){
+                   if(word.contains(guess)){
 //                       System.out.println("present!");
                        System.out.println(visualsList.get(0));
-                       for(char x : word.toCharArray()) {
-                           if (String.valueOf(x).equals(" ") || String.valueOf(x).equals(".") || String.valueOf(x).equals(":") || String.valueOf(x).equals("-") ||
-                                   String.valueOf(x).equals("'") || String.valueOf(x).matches("\\d") || guesses.contains(String.valueOf(x).toUpperCase())) {
-                               updates.append(x);
-                           } else {
-                               updates.append("_");
-                           }
-                       }
-                       System.out.println(updates);
+                       outputWord(word, updates, guesses);
 
                    }else{
                        System.out.println("Not Present!");
                        visualsList.pop();
                        System.out.println(visualsList.get(0));
-                       for(char x : word.toCharArray()) {
-                           if (String.valueOf(x).equals(" ") || String.valueOf(x).equals(".") || String.valueOf(x).equals(":") || String.valueOf(x).equals("-") ||
-                                   String.valueOf(x).equals("'") || String.valueOf(x).matches("\\d") || guesses.contains(String.valueOf(x).toUpperCase())) {
-                               updates.append(x);
-                           } else {
-                               updates.append("_");
-                           }
+                       outputWord(word, updates, guesses);
+                       if(visualsList.size()==1){
+                           game = false;
                        }
-                       System.out.println(updates);
                    }
                 }while(game==true);
 
