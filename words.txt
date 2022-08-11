@@ -59,7 +59,7 @@ The Shining
 Paths of Glory
 Django Unchained
 The Dark Knight Rises
-WALL·E
+WALL-E
 American Beauty
 Grave of the Fireflies
 Aliens
@@ -76,7 +76,6 @@ Amélie
 Witness for the Prosecution
 Reservoir Dogs
 Braveheart
-Toy Story 3
 A Clockwork Orange
 Double Indemnity
 Taxi Driver
@@ -101,7 +100,6 @@ The Apartment
 Inglourious Basterds
 All About Eve
 The Treasure of the Sierra Madre
-Jodaeiye Nader az Simin
 Indiana Jones and the Last Crusade
 Metropolis
 Yojimbo
@@ -115,7 +113,6 @@ Up
 Raging Bull
 Downfall
 Mad Max: Fury Road
-Jagten
 Chinatown
 The Great Escape
 Die Hard
@@ -180,13 +177,12 @@ The Princess Bride
 Annie Hall
 Persona
 The Grand Budapest Hotel
-Amores Perros
 In the Name of the Father
 Million Dollar Baby
 Ben-Hur
 The Grapes of Wrath
 Hachi: A Dog's Tale
-Nausicaä of the Valley of the Wind
+Nausicaa of the Valley of the Wind
 Shutter Island
 Diabolique
 Sin City
@@ -222,7 +218,6 @@ The Imitation Game
 Yip Man
 The King's Speech
 High Noon
-La Haine
 A Fistful of Dollars
 Pirates of the Caribbean: The Curse of the Black Pearl
 Notorious
@@ -244,7 +239,25 @@ The Graduate
 The Big Sleep
 Underground
 Elite Squad: The Enemy Within
-Gangs of Wasseypur
 Lagaan: Once Upon a Time in India
-Paris, Texas
 Akira
+The Little Mermaid
+Sleeping Beauty
+Cinderella
+Fern Gully
+Aladdin
+Edward Scissorhands
+Signs
+Zootopia
+Ralph Breaks the Internet
+Thumbelina
+Poltergeist
+Ratatouille
+Ice Age
+Peter Pan
+The Lion King
+Alice in Wonderland
+Moana
+Pirates of the Caribbean
+
+
