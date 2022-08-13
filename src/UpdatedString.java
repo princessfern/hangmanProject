@@ -11,4 +11,8 @@ public class UpdatedString {
     public String get(){
         return updates.toString();
     }
+
+    public void replace(int start, int end, String word){
+        updates.replace(start, end, word);
+    }
 }
