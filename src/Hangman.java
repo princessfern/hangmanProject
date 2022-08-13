@@ -3,6 +3,8 @@ import java.nio.file.Paths;
 import java.util.*;
 
 public class Hangman {
+    private Words words = new Words();
+
     private void outputWord(String word, UpdatedString updates, ArrayList<String> guesses, ArrayList<String> word_guesses){
 
         for(char x : word.toCharArray()) {
@@ -63,10 +65,9 @@ public class Hangman {
                     LinkedList<String> visualsList = new LinkedList<>(Arrays.asList(sb.toString().split(",")));
                     System.out.println(visualsList.get(0));
 //               Get word
-                    FileWriter used_words = new FileWriter("used_words.txt");
-                    String word = Words.getWord().toUpperCase();
-                    used_words.write(word+"\n");
-                    used_words.close();
+
+                    String word = this.words.getWord().toUpperCase();
+
                     for (char x : word.toCharArray()) {
                         if (String.valueOf(x).equals(" ") || String.valueOf(x).equals(".") || String.valueOf(x).equals(":") || String.valueOf(x).equals("-") || String.valueOf(x).equals("'") ||
                                 String.valueOf(x).matches("\\d")) {
@@ -118,12 +119,15 @@ public class Hangman {
                             System.out.println(visualsList.get(0));
                             outputWord(word, updates, guesses, word_guesses);
                             if (visualsList.size() == 2) {
-                                game = false;
+//                                game = false;
                                 System.out.println("Answer: " + word);
+                                playHangman();
                             }
                         }
                     } while (game == true);
                 }else if(input.equalsIgnoreCase("n")){
+                    FileWriter fw = new FileWriter("used_words.txt");
+                    fw.close();
                     System.exit(1);
                 }else{
                     System.out.println("Incorrect input");
