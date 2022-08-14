@@ -63,21 +63,12 @@ public class Hangman {
                         line = br.readLine();
                     }
                     LinkedList<String> visualsList = new LinkedList<>(Arrays.asList(sb.toString().split(",")));
-                    System.out.println(visualsList.get(0));
 //               Get word
+                    System.out.println("Game mode: Easy(1)\t\tNormal(2)\t\tHard(3)\n");
+                    Scanner scanMode = new Scanner(System.in);
+                    int mode = scanMode.nextInt();
+                    String word = this.words.getWord(mode).toUpperCase();
 
-                    String word = this.words.getWord().toUpperCase();
-
-                    for (char x : word.toCharArray()) {
-                        if (String.valueOf(x).equals(" ") || String.valueOf(x).equals(".") || String.valueOf(x).equals(":") || String.valueOf(x).equals("-") || String.valueOf(x).equals("'") ||
-                                String.valueOf(x).matches("\\d")) {
-                            System.out.print(x);
-                        } else {
-                            System.out.print("_");
-                        }
-                    }
-
-//                    System.out.println("\n"+word);
 
 //               Start guessing
                     System.out.print("\nStart Guessing!\n");

@@ -8,7 +8,7 @@ import java.util.Random;
 public class Words {
 
 
-    public static String getWord() throws IOException {
+    public static String getWord(int mode) throws IOException {
         LinkedList<String> words= new LinkedList<String>();
         try(BufferedReader br = new BufferedReader(new FileReader("words.txt"))){
             String word = br.readLine();
@@ -26,11 +26,19 @@ public class Words {
         UsedWords usedWords = new UsedWords();
         do{
             game_word = words.get(index.nextInt(words.size()));
-
-            if (!usedWords.getUsedWords().contains(game_word)){
-                no_repeat=true;
+            if(mode==3){
+                if(game_word.split(" ").length>=mode){
+                    if (!usedWords.getUsedWords().contains(game_word)){
+                        no_repeat=true;
+                    }
+                }
+            }else if(game_word.split(" ").length==mode){
+                if (!usedWords.getUsedWords().contains(game_word)){
+                    no_repeat=true;
+                }
             }
-        }while(no_repeat = false);
+
+        }while(no_repeat == false);
 
         usedWords.addWord(game_word);
         return game_word;
