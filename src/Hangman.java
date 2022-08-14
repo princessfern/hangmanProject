@@ -92,7 +92,6 @@ public class Hangman {
                             System.out.println("Already used. Try again!\n");
 
                         } else if (present==false && word.contains(guess)) {
-//                       System.out.println("present!");
                             if(guess.length()>1){
                                 System.out.println(visualsList.get(0));
                                 word_guesses.add(guess);
