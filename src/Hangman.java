@@ -100,12 +100,12 @@ public class Hangman {
 //                    check if previously guessed
                         Boolean present = false;
                         for(String g : guesses){
-                            if(g.contains(guess)){
+                            if(g.equals(guess)){
                                 present = true;
                             }
                         }
                         for(String wg : word_guesses){
-                            if(wg.contains(guess)){
+                            if(wg.equals(guess)){
                                 present = true;
                             }
                         }
